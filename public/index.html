@@ -13,15 +13,30 @@
                 .then(data => {
                     document.getElementById('menu-container').innerHTML = data;
                     switchLanguage(localStorage.getItem('language') || 'zh');
+                    setActiveMenuItem();
                 });
         });
 
         function switchLanguage(lang) {
             localStorage.setItem('language', lang);
+            document.querySelectorAll('.language-switcher a').forEach(function(element) {
+                element.classList.remove('active');
+            });
+            document.querySelector('.language-switcher a[data-lang="' + lang + '"]').classList.add('active');
             document.querySelectorAll('nav ul li a').forEach(function(element) {
                 element.textContent = element.getAttribute('data-' + lang);
             });
             document.getElementById('site-logo').src = lang === 'zh' ? 'media/icons/Chinese.svg' : 'media/icons/English.svg';
+        }
+
+        function setActiveMenuItem() {
+            const currentHash = window.location.hash || '#current-exhibitions';
+            document.querySelectorAll('nav ul li a').forEach(function(element) {
+                element.classList.remove('active');
+                if (element.getAttribute('href') === currentHash) {
+                    element.classList.add('active');
+                }
+            });
         }
     </script>
 </head>
