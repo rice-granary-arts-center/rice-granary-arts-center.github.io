@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="欢迎来到我们的艺术空间，探索当前、过去和未来的展览信息，预约功能以及艺术家访谈。">
+    <title>米仓艺术空间</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('menu.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('menu-container').innerHTML = data;
+                    switchLanguage(localStorage.getItem('language') || 'zh');
+                    setActiveMenuItem();
+                });
+        });
+
+        function switchLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.querySelectorAll('.language-switcher a').forEach(function(element) {
+                element.classList.remove('active');
+            });
+            document.querySelector('.language-switcher a[data-lang="' + lang + '"]').classList.add('active');
+            document.querySelectorAll('nav ul li a').forEach(function(element) {
+                element.textContent = element.getAttribute('data-' + lang);
+            });
+            document.getElementById('site-logo').src = lang === 'zh' ? 'media/icons/Chinese.svg' : 'media/icons/English.svg';
+        }
+
+        function setActiveMenuItem() {
+            const currentHash = window.location.hash || '#current-exhibition';
+            document.querySelectorAll('nav ul li a').forEach(function(element) {
+                element.classList.remove('active');
+                if (element.getAttribute('href') === currentHash) {
+                    element.classList.add('active');
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="poster">
+        <img src="media/images/poster_placeholder.svg" alt="Poster Image" class="poster-image">
+    </div>
+    <div class="menu-container" id="menu-container"></div>
+    <a href="index.html"><img id="site-logo" class="site-logo" src="media/icons/Chinese.svg" alt="米仓艺术中心"></a>
+</body>
+</html>

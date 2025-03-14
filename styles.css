@@ -1,0 +1,152 @@
+/* Define Noto Sans SC font family */
+@font-face {
+    font-family: 'Noto Sans SC';
+    src: url('fonts/NotoSansSC-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Default styles for desktop */
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    color: #333; /* Default text color */
+    background-color: #fff; /* Default background color */
+}
+
+.poster {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    align-items: center;
+    background: url('media/images/poster.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.poster-image {
+    height: 100vh;
+    width: auto;
+}
+
+.menu-container {
+    position: absolute;
+    bottom: 1rem;
+    right: 0.5rem;
+    text-align: right;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: block;
+    margin-bottom: 0.5rem; /* Reduced margin */
+}
+
+nav ul li a {
+    color: black; /* Selectable text color */
+    text-decoration: none;
+    font-size: 1.5rem; /* Adjusted font size */
+    font-weight: 500; /* Reduced font weight */
+}
+
+nav ul li a:hover {
+    color: #555; /* Hover color for selectable text */
+}
+
+nav ul li a.active {
+    color: #aaa; /* Light grey for active item */
+    pointer-events: none; /* Make it not selectable */
+}
+
+.language-switcher {
+    margin-top: 1rem; /* Reduced margin */
+}
+
+.language-switcher a {
+    color: black; /* Selectable text color */
+    text-decoration: none;
+    margin: 0 0.2rem; /* Reduced margin */
+    font-size: 1rem; /* Keep the same size */
+}
+
+.language-switcher a.active {
+    color: #aaa; /* Light grey for active language */
+    pointer-events: none; /* Make it not selectable */
+}
+
+.site-logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 5rem; /* Adjusted height */
+    width: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+    filter: grayscale(100%); /* Ensure icon is grayscale */
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #ddd; /* Light text color */
+        background-color: #333; /* Dark background color */
+    }
+
+    nav ul li a {
+        color: #ddd; /* Light selectable text color */
+    }
+
+    nav ul li a:hover {
+        color: #bbb; /* Hover color for selectable text */
+    }
+
+    nav ul li a.active {
+        color: #888; /* Mid grey for active item */
+    }
+
+    .language-switcher a {
+        color: #ddd; /* Light selectable text color */
+    }
+
+    .language-switcher a.active {
+        color: #888; /* Mid grey for active language */
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    .poster {
+        order: 1;
+        width: 100%; /* Fill the whole width */
+        position: relative; /* Ensure it sticks to the top */
+    }
+
+    .menu-container {
+        position: relative;
+        bottom: 1rem;
+        left: 1rem;
+        text-align: left;
+        margin-top: 1rem; /* Add space between poster and menu */
+    }
+
+    .site-logo {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        height: 2rem;
+    }
+
+    .poster-image {
+        width: 100%; /* Fill the whole width */
+        height: auto; /* Adaptive height */
+        object-fit: cover; /* Ensure the image covers the area */
+    }
+}
