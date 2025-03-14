@@ -30,7 +30,7 @@
         }
 
         function setActiveMenuItem() {
-            const currentHash = window.location.hash || '#current-exhibitions';
+            const currentHash = window.location.hash || '#current-exhibition';
             document.querySelectorAll('nav ul li a').forEach(function(element) {
                 element.classList.remove('active');
                 if (element.getAttribute('href') === currentHash) {
@@ -45,6 +45,6 @@
         <img src="media/images/poster_placeholder.svg" alt="Poster Image" class="poster-image">
     </div>
     <div class="menu-container" id="menu-container"></div>
-    <img id="site-logo" class="site-logo" src="media/icons/Chinese.svg" alt="米仓艺术中心" onclick="switchLanguage(localStorage.getItem('language') === 'zh' ? 'en' : 'zh')">
+    <a href="index.html"><img id="site-logo" class="site-logo" src="media/icons/Chinese.svg" alt="米仓艺术中心"></a>
 </body>
 </html>
