@@ -1,9 +1,17 @@
 <script>
     var path = window.location.pathname;
+  
+    // Check if the path ends with a '/'
     if (path.endsWith('/')) {
-      path = path + 'index.html';
-    } else {
-      path = path + '.html';
+      // Append 'public/index.html' to the path
+      path = 'public/index.html';
+    } 
+    // Check if the path doesn't include '.html', append '.html' if necessary
+    else if (!path.includes('.html')) {
+      path = 'public' + path + '.html';
     }
+  
+    // Redirect to the correct path
     window.location.replace(path);
-</script>
+  </script>
+  
