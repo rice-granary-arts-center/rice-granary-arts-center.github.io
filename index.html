@@ -3,22 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="欢迎来到我们的艺术空间，探索当前、过去和未来的展览信息，预约功能以及艺术家访谈。">
-    <title>米仓艺术空间</title>
+    <meta name="description" content="杭州米仓艺术中心是一个展示当代艺术的空间，提供展览、讲座和艺术家访谈。Rice Granary Arts Center is a contemporary art space in Hangzhou featuring exhibitions, talks, and artist interviews.">
+    <title>米仓艺术空间 | Rice Granary Arts Center</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 </head>
 <body>
-    <div class="content">
+    <div class="content home-page">
         <div class="poster">
-            <img src="media/images/poster_placeholder.svg" alt="Poster Image" class="poster-image">
+            <img src="media/images/poster_placeholder.svg" alt="Exhibition Poster" class="poster-image">
         </div>
+        
         <div class="banner">
-            <marquee behavior="scroll" direction="left" scrollamount="5">
-                <!-- Banner text will be populated by JavaScript -->
-            </marquee>
+            <div class="scrollable-container">
+                <div class="scrollable-content" id="scrollable-content">
+                    <div class="exhibition-info">
+                        <!-- Keep everything in one line with inline spans -->
+                        <span data-lang-zh>杭州米仓艺术中心开馆特别展-小泽刚与管怀宾</span>
+                        <span data-lang-en>Hangzhou Rice Granary Arts Center Opening Special Exhibition: Ozawa Tsuyoshi and Guan Huaibin</span>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <span data-lang-zh>展览期间：2025年3月18日至6月15日</span>
+                        <span data-lang-en>Exhibition Period: March 18, 2024 - June 15, 2024</span>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <span data-lang-zh>开放时间：周二至周日 10:00-18:00</span>
+                        <span data-lang-en>Opening Hours: Tuesday to Sunday 10:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    
     <div class="menu-container" id="menu-container"></div>
     <a href="index.html"><img id="site-logo" class="site-logo" src="media/icons/Chinese.svg" alt="米仓艺术中心"></a>
 </body>
