@@ -8,6 +8,7 @@
 body {
     font-family: 'Noto Sans SC', sans-serif;
     margin: 0;
+    padding: 0;
     display: flex;
     height: 100vh;
     color: #333; /* Default text color */
@@ -26,6 +27,10 @@ body {
 .poster-image {
     height: 100vh;
     width: auto;
+}
+
+.banner {
+    display: none; /* Hide banner on desktop */
 }
 
 .menu-container {
@@ -80,8 +85,8 @@ nav ul li a.active {
 
 .site-logo {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 1rem;
+    right: 1rem;
     height: 5rem; /* Adjusted height */
     width: auto; /* Maintain aspect ratio */
     cursor: pointer;
@@ -91,11 +96,13 @@ nav ul li a.active {
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
     body {
+        height: fit-content;
         color: #ddd; /* Light text color */
         background-color: #333; /* Dark background color */
     }
 
     nav ul li a {
+        font-size: medium;
         color: #ddd; /* Light selectable text color */
     }
 
@@ -108,6 +115,7 @@ nav ul li a.active {
     }
 
     .language-switcher a {
+        font-size: x-small;
         color: #ddd; /* Light selectable text color */
     }
 
@@ -121,27 +129,92 @@ nav ul li a.active {
     body {
         flex-direction: column;
         overflow-y: auto; /* Enable vertical scrolling */
+        position: relative;
+        min-height: 100vh;
+        margin: 0; /* Ensure no margin on body */
+        padding: 0; /* Ensure no padding on body */
+    }
+
+    .content {
+        order: 1;
+        width: 100%;
     }
 
     .poster {
         order: 1;
         width: 100%; /* Fill the whole width */
         position: relative; /* Ensure it sticks to the top */
+        height: auto;
+    }
+
+    .banner {
+        display: block; /* Show banner on mobile */
+        order: 2;
+        width: 100%; /* Fill the whole width */
+        background-color: #333;
+        color: #fff;
+        padding: 0;
+        text-align: center;
+        font-size: 1rem;
     }
 
     .menu-container {
-        position: relative;
-        bottom: 1rem;
-        left: 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
         text-align: left;
-        margin-top: 1rem; /* Add space between poster and menu */
+        margin: 0; /* Remove any margin */
+        padding: 0rem; /* Small padding inside the container */
+    }
+
+    nav {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul a {
+        font-size: medium;
+    }
+    
+    nav ul li {
+        margin-bottom: 0; /* Reduced margin between items */
+    }
+
+    nav ul li a {
+        color: black; /* Selectable text color */
+        text-decoration: none;
+        font-size: 1rem; /* Adjusted font size */
+        font-weight: 500; /* Reduced font weight */
+    }
+
+    nav ul li:last-child {
+        margin-bottom: 0; /* No margin after last item */
+    }
+
+
+    .language-switcher {
+        margin: 0.5rem 0 0 0; /* Only top margin */
+        padding: 0;
+    }
+
+    .language-switcher a {
+        font-size: x-small; /* Keep the same size */
+    }
+    
+    .menu-container {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        bottom: 0;
     }
 
     .site-logo {
         position: fixed;
-        bottom: 1rem;
-        right: 1rem;
-        height: 2rem;
+        bottom: 0;
+        right: 0;
+        height: 3rem;
+        margin: 0.0; /* Small margin to prevent touching the edge */
+        padding: 0;
     }
 
     .poster-image {
