@@ -4,23 +4,29 @@
     src: url('fonts/NotoSansSC-VariableFont_wght.ttf') format('truetype');
 }
 
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Default styles for desktop */
 body {
     font-family: 'Noto Sans SC', sans-serif;
-    margin: 0;
-    padding: 0;
     display: flex;
     height: 100vh;
-    color: #333; /* Default text color */
-    background-color: #fff; /* Default background color */
+    color: #333;
+    background-color: #fff;
 }
 
+/* Poster styles */
 .poster {
     flex: 1;
     display: flex;
-    justify-content: flex-start; /* Align to the left */
+    justify-content: flex-start;
     align-items: center;
-    background: url('media/images/poster.jpg') no-repeat center center;
+    background: url('media/images/poster_placeholder.svg') no-repeat center center;
     background-size: cover;
 }
 
@@ -29,10 +35,12 @@ body {
     width: auto;
 }
 
+/* Banner styles - hidden on desktop */
 .banner {
-    display: none; /* Hide banner on desktop */
+    display: none;
 }
 
+/* Menu container */
 .menu-container {
     position: absolute;
     bottom: 1rem;
@@ -40,186 +48,174 @@ body {
     text-align: right;
 }
 
+/* Navigation styles */
 nav ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
 }
 
 nav ul li {
     display: block;
-    margin-bottom: 0.5rem; /* Reduced margin */
+    margin-bottom: 0.5rem;
 }
 
 nav ul li a {
-    color: black; /* Selectable text color */
+    color: black;
     text-decoration: none;
-    font-size: 1.5rem; /* Adjusted font size */
-    font-weight: 500; /* Reduced font weight */
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 nav ul li a:hover {
-    color: #555; /* Hover color for selectable text */
+    color: #555;
 }
 
 nav ul li a.active {
-    color: #aaa; /* Light grey for active item */
-    pointer-events: none; /* Make it not selectable */
+    color: #aaa;
+    pointer-events: none;
 }
 
+/* Language switcher */
 .language-switcher {
-    margin-top: 1rem; /* Reduced margin */
+    margin-top: 1rem;
 }
 
 .language-switcher a {
-    color: black; /* Selectable text color */
+    color: black;
     text-decoration: none;
-    margin: 0 0.2rem; /* Reduced margin */
-    font-size: 1rem; /* Keep the same size */
+    margin: 0 0.2rem;
+    font-size: 1rem;
 }
 
 .language-switcher a.active {
-    color: #aaa; /* Light grey for active language */
-    pointer-events: none; /* Make it not selectable */
+    color: #aaa;
+    pointer-events: none;
 }
 
+/* Site logo */
 .site-logo {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    height: 5rem; /* Adjusted height */
-    width: auto; /* Maintain aspect ratio */
+    height: 5rem;
+    width: auto;
     cursor: pointer;
-    filter: grayscale(100%); /* Ensure icon is grayscale */
+    filter: grayscale(100%);
 }
 
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
     body {
-        height: fit-content;
-        color: #ddd; /* Light text color */
-        background-color: #333; /* Dark background color */
+        color: #ddd;
+        background-color: #333;
     }
 
     nav ul li a {
-        font-size: medium;
-        color: #ddd; /* Light selectable text color */
+        color: #ddd;
     }
 
     nav ul li a:hover {
-        color: #bbb; /* Hover color for selectable text */
+        color: #bbb;
     }
 
     nav ul li a.active {
-        color: #888; /* Mid grey for active item */
+        color: #888;
     }
 
     .language-switcher a {
+        color: #ddd;
         font-size: x-small;
-        color: #ddd; /* Light selectable text color */
     }
 
     .language-switcher a.active {
-        color: #888; /* Mid grey for active language */
+        color: #888;
     }
 }
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    /* Basic layout */
     body {
         flex-direction: column;
-        overflow-y: auto; /* Enable vertical scrolling */
+        overflow-y: auto;
         position: relative;
         min-height: 100vh;
-        margin: 0; /* Ensure no margin on body */
-        padding: 0; /* Ensure no padding on body */
     }
 
+    /* Content container */
     .content {
         order: 1;
         width: 100%;
     }
 
+    /* Poster */
     .poster {
         order: 1;
-        width: 100%; /* Fill the whole width */
-        position: relative; /* Ensure it sticks to the top */
+        width: 100%;
+        position: relative;
         height: auto;
     }
 
+    .poster-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* Banner */
     .banner {
-        display: block; /* Show banner on mobile */
+        display: block;
         order: 2;
-        width: 100%; /* Fill the whole width */
+        width: 100%;
         background-color: #333;
         color: #fff;
-        padding: 0;
+        padding: 0.5rem 0;
         text-align: center;
         font-size: 1rem;
     }
 
+    /* Menu container */
     .menu-container {
         position: fixed;
         bottom: 0;
         left: 0;
         text-align: left;
-        margin: 0; /* Remove any margin */
-        padding: 0rem; /* Small padding inside the container */
+        padding: 0rem;
+        z-index: 100;
     }
 
+    /* Navigation */
     nav {
         margin: 0;
-        padding: 0;
     }
 
-    nav ul a {
-        font-size: medium;
-    }
-    
     nav ul li {
-        margin-bottom: 0; /* Reduced margin between items */
-    }
-
-    nav ul li a {
-        color: black; /* Selectable text color */
-        text-decoration: none;
-        font-size: 1rem; /* Adjusted font size */
-        font-weight: 500; /* Reduced font weight */
+        margin-bottom: 0.3rem;
     }
 
     nav ul li:last-child {
-        margin-bottom: 0; /* No margin after last item */
+        margin-bottom: 0;
     }
 
+    nav ul li a {
+        font-size: 1rem;
+    }
 
+    /* Language switcher */
     .language-switcher {
-        margin: 0.5rem 0 0 0; /* Only top margin */
-        padding: 0;
+        margin: 0.5rem 0 0 0;
     }
 
     .language-switcher a {
-        font-size: x-small; /* Keep the same size */
-    }
-    
-    .menu-container {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        bottom: 0;
+        font-size: small;
     }
 
+    /* Site logo */
     .site-logo {
         position: fixed;
-        bottom: 0;
-        right: 0;
-        height: 3rem;
-        margin: 0.0; /* Small margin to prevent touching the edge */
-        padding: 0;
-    }
-
-    .poster-image {
-        width: 100%; /* Fill the whole width */
-        height: auto; /* Adaptive height */
-        object-fit: cover; /* Ensure the image covers the area */
+        top: auto;
+        bottom: 0rem;
+        right: 0rem;
+        height: 2.6rem;
+        z-index: 100;
     }
 }
