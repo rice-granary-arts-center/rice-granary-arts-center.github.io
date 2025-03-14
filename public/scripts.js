@@ -5,44 +5,94 @@ const exhibitionInfo = {
         time: "开放时间：周二至周日 10:00-18:00"
     },
     en: {
-        title: "Hangzhou Rice Granary Art Center Opening Special Exhibition: Ozawa Tsuyoshi and Guan Huaibin",
+        title: "Hangzhou Rice Granary Arts Center Opening Special Exhibition: Ozawa Tsuyoshi and Guan Huaibin",
         duration: "Exhibition Period: March 18, 2024 - June 15, 2024",
         time: "Opening Days and Hours: Tuesday to Sunday 10:00 AM - 6:00 PM"
     }
 };
 
 document.addEventListener("DOMContentLoaded", function() {
+    // Initialize language immediately
+    const savedLanguage = localStorage.getItem('language') || 'zh';
+    updateLanguageDisplay(savedLanguage);
+    
+    // Load menu once, it stays throughout the session
     fetch('menu.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('menu-container').innerHTML = data;
-            const savedLanguage = localStorage.getItem('language') || 'zh';
-            switchLanguage(savedLanguage);
+            
+            // Set active menu item based on the current page
             setActiveMenuItem();
-            updateBannerText(savedLanguage);
+            
+            // Apply language to menu elements
+            switchLanguage(savedLanguage);
+            
+            // Update banner text (only on index page)
+            const banner = document.querySelector('.banner');
+            if (banner) {
+                const savedLanguage = localStorage.getItem('language') || 'zh';
+                updateBannerText(savedLanguage);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading menu:', error);
         });
-        
-    // For mobile, just ensure correct element order without inline styling
+    
+    // Mobile layout adjustments
     if (window.innerWidth <= 768) {
-        const poster = document.querySelector('.poster');
-        const banner = document.querySelector('.banner');
-        const content = document.querySelector('.content');
-        
-        // Clear and rebuild the content in correct order
-        if (content && poster && banner) {
-            content.innerHTML = '';
-            content.appendChild(poster);
-            content.appendChild(banner);
-        }
+        handleMobileLayout();
     }
 });
 
+// Update the language display function to handle banner elements specially
+function updateLanguageDisplay(lang) {
+    // Handle regular elements (use block display)
+    document.querySelectorAll('[data-lang-zh]:not(.banner [data-lang-zh])').forEach(el => {
+        el.style.display = lang === 'zh' ? 'block' : 'none';
+    });
+    document.querySelectorAll('[data-lang-en]:not(.banner [data-lang-en])').forEach(el => {
+        el.style.display = lang === 'en' ? 'block' : 'none';
+    });
+    
+    // Handle banner elements specially (use inline display)
+    document.querySelectorAll('.banner [data-lang-zh]').forEach(el => {
+        el.style.display = lang === 'zh' ? 'inline' : 'none';
+    });
+    document.querySelectorAll('.banner [data-lang-en]').forEach(el => {
+        el.style.display = lang === 'en' ? 'inline' : 'none';
+    });
+}
 
+// Replace updateBannerText function with this version
 function updateBannerText(lang) {
-    const info = exhibitionInfo[lang];
-    const marquee = document.querySelector('.banner marquee');
-    if (marquee) {
-        marquee.innerHTML = `${info.title} | ${info.duration} | ${info.time}`;
+    updateLanguageDisplay(lang);
+    
+    // Add touch and mouse event handlers to pause animation
+    const scrollContent = document.querySelector('.scrollable-content');
+    if (scrollContent) {
+        // Reset to beginning of animation when language changes
+        scrollContent.style.animation = 'none';
+        scrollContent.offsetHeight; // Trigger reflow
+        scrollContent.style.animation = 'scroll-text 30s linear infinite';
+        
+        // Handle mouse events
+        scrollContent.addEventListener('mousedown', () => {
+            scrollContent.style.animationPlayState = 'paused';
+        });
+        
+        document.addEventListener('mouseup', () => {
+            scrollContent.style.animationPlayState = 'running';
+        });
+        
+        // Handle touch events for mobile
+        scrollContent.addEventListener('touchstart', () => {
+            scrollContent.style.animationPlayState = 'paused';
+        });
+        
+        document.addEventListener('touchend', () => {
+            scrollContent.style.animationPlayState = 'running';
+        });
     }
 }
 
@@ -65,27 +115,131 @@ function switchLanguage(lang) {
     
     // Update banner text
     updateBannerText(lang);
+    
+    // Update language display for content elements
+    updateLanguageDisplay(lang);
 }
 
 function setActiveMenuItem() {
+    // Get the current page filename
     const currentPath = window.location.pathname;
-    const isIndexPage = currentPath === '/' || currentPath.endsWith('index.html');
+    const currentPage = currentPath.split('/').pop() || 'index.html';
     
     document.querySelectorAll('nav ul li a').forEach(element => {
         element.classList.remove('active');
-        if ((isIndexPage && element.getAttribute('href') === 'index.html') || 
-            (!isIndexPage && element.getAttribute('href') === currentPath)) {
+        const href = element.getAttribute('href');
+        
+        // Check if this menu item corresponds to the current page
+        if (currentPage === href) {
             element.classList.add('active');
         }
     });
 }
 
+// Add this new function to fetch and update only the content area
+function loadPageContent(url) {
+    // Show loading indicator
+    document.querySelector('.content').classList.add('loading');
+    
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Extract just the content section
+            const newContent = doc.querySelector('.content');
+            
+            // Replace only the content area, leave menu and logo untouched
+            if (newContent) {
+                document.querySelector('.content').innerHTML = newContent.innerHTML;
+                
+                // Update page title
+                document.title = doc.title;
+                
+                // Update URL without page reload
+                history.pushState({}, doc.title, url);
+                
+                // Apply language display to new content
+                const currentLang = localStorage.getItem('language') || 'zh';
+                updateLanguageDisplay(currentLang);
+                
+                // IMPORTANT: Only handle mobile layout for specific pages
+                if (window.innerWidth <= 768 && url.includes('index.html')) {
+                    handleMobileLayout();
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error loading page content:', error);
+        })
+        .finally(() => {
+            // Remove loading indicator
+            document.querySelector('.content').classList.remove('loading');
+        });
+}
+
+// Modify handleMobileLayout to work with new banner structure
+function handleMobileLayout() {
+    const content = document.querySelector('.content');
+    const poster = document.querySelector('.poster');
+    const banner = document.querySelector('.banner');
+    
+    if (content && poster && banner) {
+        // Clear and rebuild in correct order
+        content.innerHTML = '';
+        
+        // 1. Add poster first
+        content.appendChild(poster);
+        
+        // 2. Add banner second
+        banner.style.display = 'block';
+        banner.style.backgroundColor = '#333';
+        banner.style.color = '#fff';
+        banner.style.width = '100%';
+        content.appendChild(banner);
+    }
+}
+
+// Modify the document click event to handle navigation
 document.addEventListener('click', function(event) {
     const target = event.target;
     
-    // Language switching
+    // Language switching (existing code)
     if (target.matches('.language-switcher a')) {
-      event.preventDefault();
-      switchLanguage(target.getAttribute('data-lang'));
+        event.preventDefault();
+        switchLanguage(target.getAttribute('data-lang'));
     }
-  });
+    
+    // NEW: Handle menu navigation links
+    if (target.matches('nav ul li a')) {
+        event.preventDefault();
+        
+        // First update active state in the menu
+        document.querySelectorAll('nav ul li a').forEach(el => {
+            el.classList.remove('active');
+        });
+        target.classList.add('active');
+        
+        // Then load the page content
+        loadPageContent(target.getAttribute('href'));
+    }
+});
+
+// Handle browser back/forward navigation
+window.addEventListener('popstate', function() {
+    loadPageContent(window.location.pathname);
+});
+
+window.addEventListener('resize', function() {
+    // If resized to desktop width, ensure banner is hidden
+    if (window.innerWidth > 768) {
+        const banner = document.querySelector('.banner');
+        if (banner) {
+            banner.style.display = 'none';
+        }
+    } else {
+        // If resized to mobile width, apply mobile layout
+        handleMobileLayout();
+    }
+});
