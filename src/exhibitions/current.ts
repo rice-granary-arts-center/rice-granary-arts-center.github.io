@@ -1,19 +1,23 @@
-export const getCurrentExhibition = async () => {
-    // Simulated API call to fetch current exhibition data
-    const response = await fetch('/api/exhibitions/current');
-    if (!response.ok) {
-        throw new Error('Failed to fetch current exhibition data');
+// Assuming you have a function to render the current exhibition
+function renderCurrentExhibition(exhibition: any) {
+    const exhibitionContainer = document.getElementById('exhibition-container');
+    if (!exhibitionContainer) {
+        console.error('Exhibition container not found');
+        return;
     }
-    const currentExhibition = await response.json();
-    return currentExhibition;
+
+    exhibitionContainer.innerHTML = `
+        <h1>${exhibition.title}</h1>
+        <p>${exhibition.description}</p>
+        <img src="${exhibition.image}" alt="${exhibition.title}">
+    `;
+}
+
+// Example usage
+const currentExhibition = {
+    title: 'Current Exhibition Title',
+    description: 'Description of the current exhibition.',
+    image: 'path/to/image.jpg'
 };
 
-export const displayCurrentExhibition = (exhibition) => {
-    const exhibitionContainer = document.getElementById('current-exhibition');
-    exhibitionContainer.innerHTML = `
-        <h2>${exhibition.title}</h2>
-        <p>${exhibition.description}</p>
-        <p><strong>Opening Date:</strong> ${exhibition.openingDate}</p>
-        <p><strong>Closing Date:</strong> ${exhibition.closingDate}</p>
-    `;
-};
+renderCurrentExhibition(currentExhibition);
