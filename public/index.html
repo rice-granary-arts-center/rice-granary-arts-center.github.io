@@ -21,15 +21,15 @@
             document.querySelectorAll('nav ul li a').forEach(function(element) {
                 element.textContent = element.getAttribute('data-' + lang);
             });
-            document.getElementById('site-logo').src = lang === 'zh' ? 'media/icons/SVG/Chinese.svg' : 'media/icons/SVG/English.svg';
+            document.getElementById('site-logo').src = lang === 'zh' ? 'media/icons/Chinese.svg' : 'media/icons/English.svg';
         }
     </script>
 </head>
 <body>
     <div class="poster">
-        <img src="media/images/SVG/poster_placeholder.svg" alt="Poster Image" class="poster-image">
+        <img src="media/images/poster_placeholder.svg" alt="Poster Image" class="poster-image">
     </div>
     <div class="menu-container" id="menu-container"></div>
-    <img id="site-logo" class="site-logo" src="media/icons/SVG/Chinese.svg" alt="米仓艺术中心" onclick="switchLanguage(localStorage.getItem('language') === 'zh' ? 'en' : 'zh')">
+    <img id="site-logo" class="site-logo" src="media/icons/Chinese.svg" alt="米仓艺术中心" onclick="switchLanguage(localStorage.getItem('language') === 'zh' ? 'en' : 'zh')">
 </body>
 </html>
