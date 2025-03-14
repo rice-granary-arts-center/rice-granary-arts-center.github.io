@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: flex-start; /* Align to the left */
     align-items: center;
-    background: url('media/images/poster.jpg') no-repeat center center;
+    background: url('media/images/SVG/poster_placeholder.svg') no-repeat center center;
     background-size: cover;
 }
 
@@ -56,6 +56,11 @@ nav ul li a:hover {
     color: #555; /* Hover color for selectable text */
 }
 
+nav ul li a.active {
+    color: #aaa; /* Light grey for active item */
+    pointer-events: none; /* Make it not selectable */
+}
+
 .language-switcher {
     margin-top: 1rem; /* Reduced margin */
 }
@@ -63,8 +68,13 @@ nav ul li a:hover {
 .language-switcher a {
     color: black; /* Selectable text color */
     text-decoration: none;
-    margin: 0 0rem; /* Reduced margin */
+    margin: 0 0.2rem; /* Reduced margin */
     font-size: 1rem; /* Keep the same size */
+}
+
+.language-switcher a.active {
+    color: #aaa; /* Light grey for active language */
+    pointer-events: none; /* Make it not selectable */
 }
 
 .site-logo {
