@@ -1,5 +1,10 @@
-// Assuming you have a function to render the current exhibition
-function renderCurrentExhibition(exhibition: any) {
+interface Exhibition {
+    title: string;
+    description: string;
+    image: string;
+}
+
+function renderCurrentExhibition(exhibition: Exhibition) {
     const exhibitionContainer = document.getElementById('exhibition-container');
     if (!exhibitionContainer) {
         console.error('Exhibition container not found');
@@ -14,7 +19,7 @@ function renderCurrentExhibition(exhibition: any) {
 }
 
 // Example usage
-const currentExhibition = {
+const currentExhibition: Exhibition = {
     title: 'Current Exhibition Title',
     description: 'Description of the current exhibition.',
     image: 'path/to/image.jpg'
