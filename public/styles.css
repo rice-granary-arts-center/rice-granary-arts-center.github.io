@@ -1,63 +1,97 @@
+/* Define Noto Sans SC font family */
+@font-face {
+    font-family: 'Noto Sans SC';
+    src: url('fonts/NotoSansSC-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Default styles for desktop */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     margin: 0;
+    display: flex;
+    height: 100vh;
+    color: #333; /* Default text color */
+}
+
+.poster {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    align-items: center;
+    background: url('media/images/poster.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.poster-image {
+    height: 100vh;
+    width: auto;
+}
+
+.menu-container {
+    position: absolute;
+    bottom: 1rem;
+    right: 0.5rem;
+    text-align: right;
+}
+
+nav ul {
+    list-style-type: none;
     padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-h1 {
     margin: 0;
 }
 
-nav {
-    margin: 20px 0;
+nav ul li {
+    display: block;
+    margin-bottom: 0.5rem; /* Reduced margin */
 }
 
-nav a {
-    color: #fff;
+nav ul li a {
+    color: black; /* Selectable text color */
     text-decoration: none;
-    margin: 0 15px;
+    font-size: 1.5rem; /* Adjusted font size */
+    font-weight: 500; /* Reduced font weight */
 }
 
-nav a:hover {
-    text-decoration: underline;
+nav ul li a:hover {
+    color: #555; /* Hover color for selectable text */
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+.language-switcher {
+    margin-top: 1rem; /* Reduced margin */
 }
 
-.exhibition {
-    background: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.language-switcher a {
+    color: black; /* Selectable text color */
+    text-decoration: none;
+    margin: 0 0rem; /* Reduced margin */
+    font-size: 1rem; /* Keep the same size */
 }
 
-.article {
-    background: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.site-logo {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 3rem; /* Adjusted height */
+    width: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+    filter: grayscale(100%); /* Ensure icon is grayscale */
 }
 
-.footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #333;
-    color: #fff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+/* Mobile styles */
+@media (max-width: 768px) {
+    .menu-container {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .site-logo {
+        top: 1rem;
+        right: 1rem;
+        height: 2rem;
+    }
+
+    .poster-image {
+        height: 100vh;
+        width: auto;
+    }
 }
