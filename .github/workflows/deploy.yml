@@ -2,36 +2,36 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  # Replace with your default branch if different
+    branches: [main]
 
 jobs:
-  deploy:  # Renamed from "build" to reflect the job's purpose
+  deploy:
     runs-on: ubuntu-latest
-
-    # Grant write permissions to avoid GITHUB_TOKEN issues
     permissions:
       contents: write
       pages: write
       id-token: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4  # Use the latest version (v4 instead of v2)
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3  # Updated to v3 for better compatibility
+        uses: actions/setup-node@v3
         with:
-          node-version: 18  # Node.js 14 is deprecated; use 16 or 18
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
-        run: npm run build  # Ensure this outputs files to `./public`
+        run: npm run build  # Outputs files to ./public
+
+      - name: Add .nojekyll file
+        run: touch ./public/.nojekyll  # Prevent Jekyll processing
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public  # Must match your build output directory
+          publish_dir: ./public
