@@ -1,0 +1,22 @@
+/* Desktop vertical scrolling animation */
+@keyframes scroll-vertical {
+    0% { transform: rotate(270deg) translateX(-100%) translateY(0); }
+    100% { transform: rotate(270deg) translateX(-100%) translateY(100%); }
+}
+
+/* Mobile horizontal scrolling animation */
+@keyframes scroll-text {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Loading indicator animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Content transition animation */
+.content-transition {
+    transition: opacity 0.3s ease;
+}

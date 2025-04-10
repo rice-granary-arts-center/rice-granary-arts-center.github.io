@@ -1,0 +1,162 @@
+/* Material Design Typography */
+
+/* Type scale */
+h1, .headline-large {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--md-spacing-4);
+}
+
+h2, .headline-medium {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  margin-bottom: var(--md-spacing-4);
+}
+
+h3, .headline-small {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 400;
+  margin-bottom: var(--md-spacing-3);
+}
+
+h4, .title-large {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+  margin-bottom: var(--md-spacing-3);
+}
+
+h5, .title-medium {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  letter-spacing: 0.0075em;
+  margin-bottom: var(--md-spacing-2);
+}
+
+h6, .title-small {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--md-spacing-2);
+}
+
+.body-large {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.body-medium, p {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  margin-bottom: var(--md-spacing-4);
+}
+
+.body-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.label-large {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.label-medium {
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.label-small {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* Exhibition title and dates */
+.exhibition-title {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  margin-bottom: var(--md-spacing-3);
+  color: var(--md-text-primary);
+}
+
+.exhibition-dates {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: var(--md-spacing-5);
+  color: var(--md-text-secondary);
+}
+
+/* Language display */
+[data-lang-zh], [data-lang-en] {
+  display: none;
+}
+
+html[lang="zh"] [data-lang-zh] {
+  display: block;
+}
+
+html[lang="zh"] .announcement-banner [data-lang-zh] {
+  display: inline;
+}
+
+html[lang="en"] [data-lang-en] {
+  display: block;
+}
+
+html[lang="en"] .announcement-banner [data-lang-en] {
+  display: inline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1, .headline-large {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  
+  h2, .headline-medium {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+  
+  h3, .headline-small {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  h4, .title-large {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  
+  .exhibition-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  .exhibition-dates {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,46 @@
+/* Exhibition styling */
+.exhibition-header {
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.exhibition-title {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.exhibition-dates {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .exhibition-header {
+        border-bottom: 1px solid #444;
+    }
+}
+
+/* Fill the gap on the left with content */
+body:not(.mobile-layout) .content.about-page {
+    padding-left: 2rem !important;
+}
+
+/* Ensure about header image aligns with content */
+.about-header {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* Fix content width and alignment */
+.about-content {
+    max-width: 800px;
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 0;
+}

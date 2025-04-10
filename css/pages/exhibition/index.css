@@ -1,0 +1,164 @@
+/* Exhibition header with elevation */
+.exhibition-header {
+  margin-bottom: var(--md-spacing-6);
+  padding-bottom: var(--md-spacing-5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Hero image with rounded corners */
+.exhibition-hero {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 0 var(--md-spacing-5) 0; /* Remove left/right margins */
+  border-radius: var(--md-radius-medium);
+  overflow: hidden;
+  box-shadow: var(--md-elevation-2);
+}
+
+.exhibition-hero .hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--md-transition-standard);
+}
+
+.exhibition-hero:hover .hero-image {
+  transform: scale(1.02);
+}
+
+/* Exhibition content container */
+.exhibition-content {
+  max-width: 800px;
+  margin: 0; /* Remove auto margins */
+  width: 100%;
+}
+
+/* Exhibition section styling */
+.exhibition-section {
+  width: 100%;
+  margin-bottom: var(--md-spacing-7);
+}
+
+.section-title {
+  color: var(--md-primary);
+  margin-bottom: var(--md-spacing-4);
+  position: relative;
+  padding-bottom: var(--md-spacing-2);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  background-color: var(--md-primary);
+}
+
+/* Exhibition details */
+.exhibition-details {
+  background-color: var(--md-surface);
+  border-radius: var(--md-radius-medium);
+  padding: var(--md-spacing-5);
+  margin-top: var(--md-spacing-6);
+  box-shadow: var(--md-elevation-1);
+}
+
+.detail-item {
+  margin-bottom: var(--md-spacing-4);
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  font-weight: 500;
+  margin-bottom: var(--md-spacing-2);
+  color: var(--md-primary);
+}
+
+/* Artwork gallery */
+.artwork-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--md-spacing-5);
+  margin-top: var(--md-spacing-5);
+}
+
+.artwork {
+  border-radius: var(--md-radius-small);
+  overflow: hidden;
+  box-shadow: var(--md-elevation-1);
+  transition: transform var(--md-transition-standard), box-shadow var(--md-transition-standard);
+}
+
+.artwork:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--md-elevation-2);
+}
+
+.artwork-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.artwork-caption {
+  padding: var(--md-spacing-3);
+  background-color: var(--md-surface);
+}
+
+.caption-title {
+  font-weight: 500;
+  margin-bottom: var(--md-spacing-1);
+}
+
+.caption-medium {
+  font-size: 0.9rem;
+  color: var(--md-text-secondary);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .exhibition-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  
+  .artwork-caption {
+    background-color: var(--md-surface);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .content.exhibition-page {
+    padding: 1rem;
+  }
+  
+  .exhibition-hero,
+  .exhibition-content {
+    width: 100%;
+    margin: 0 0 var(--md-spacing-4) 0;
+  }
+  
+  .exhibition-hero {
+    border-radius: var(--md-radius-small);
+    margin-bottom: var(--md-spacing-4);
+  }
+  
+  .exhibition-header {
+    margin-bottom: var(--md-spacing-5);
+    padding-bottom: var(--md-spacing-4);
+  }
+  
+  .exhibition-section {
+    margin-bottom: var(--md-spacing-5);
+  }
+  
+  .exhibition-details {
+    padding: var(--md-spacing-4);
+    margin-top: var(--md-spacing-5);
+  }
+}

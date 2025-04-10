@@ -1,0 +1,60 @@
+:root {
+  /* Structural measurements */
+  --header-height: 4rem;
+  --content-width-max: 1440px;
+  
+  /* Primary color palette */
+  --color-primary: #797979;
+  --color-primary-light: #acacac;
+  --color-primary-dark: #474747;
+  
+  /* Text colors */
+  --color-text-primary: rgba(0, 0, 0, 0.87);
+  --color-text-secondary: rgba(0, 0, 0, 0.6);
+  --color-text-disabled: rgba(0, 0, 0, 0.38);
+  
+  /* Background colors */
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-error: #b00020;
+  
+  /* Spacing system (8pt grid) */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 1rem;     /* 16px */
+  --space-4: 1.5rem;   /* 24px */
+  --space-5: 2rem;     /* 32px */
+  --space-6: 3rem;     /* 48px */
+  --space-7: 4rem;     /* 64px */  
+  /* Border colors */
+  --color-border-light: rgba(0, 0, 0, 0.12);
+  --color-border-dark: rgba(255, 255, 255, 0.12);
+  
+  /* Transitions */
+  --transition-standard: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Z-index layers */
+  --z-below: -1;
+  --z-normal: 1; 
+  --z-menu: 100;
+  --z-header: 1000;
+  --z-modal: 2000;
+  
+  /* Breakpoints */
+  --breakpoint-sm: 37.5em;  /* 600px */
+  --breakpoint-md: 48em;    /* 768px */
+  --breakpoint-lg: 62em;    /* 992px */
+  --breakpoint-xl: 75em;    /* 1200px */
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #a98274;
+    --color-text-primary: rgba(255, 255, 255, 0.87);
+    --color-text-secondary: rgba(255, 255, 255, 0.6);
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-border-light: rgba(255, 255, 255, 0.12);
+  }
+}

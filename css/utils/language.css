@@ -1,0 +1,21 @@
+/* Language display controls */
+[data-lang-zh], [data-lang-en] {
+    display: none;
+}
+
+/* Default language visibility based on HTML lang attribute */
+html[lang="zh"] [data-lang-zh] {
+    display: block;
+}
+
+html[lang="zh"] .banner [data-lang-zh] {
+    display: inline;
+}
+
+html[lang="en"] [data-lang-en] {
+    display: block;
+}
+
+html[lang="en"] .banner [data-lang-en] {
+    display: inline;
+}
