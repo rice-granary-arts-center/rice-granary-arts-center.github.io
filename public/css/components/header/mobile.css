@@ -1,0 +1,50 @@
+/* Mobile header styles */
+@media (max-width: 768px) {
+  .site-header {
+    height: 50px;
+  }
+  
+  .header-container {
+    padding: 0 var(--space-2);
+    position: relative;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .logo-link {
+    order: 2;
+    position: static;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: var(--space-3);
+  }
+  
+  .menu-container {
+    order: 1;
+    min-width: 40px;
+  }
+  
+  .site-logo {
+    height: 1.2rem;
+    width: auto;
+    display: block;
+  }
+  
+  html[lang="en"] .site-logo {
+    height: 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .header-container {
+    padding: 0 var(--space-1);
+  }
+  
+  .logo-link {
+    margin-left: var(--space-2);
+  }
+}

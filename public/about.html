@@ -5,134 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="关于米仓艺术中心的历史、愿景和使命。Learn about the history, vision, and mission of Rice Granary Arts Center.">
     <title>关于米仓 | About Rice Granary</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <div class="content about-page">
-        <div class="about-header">
-            <img src="media/images/about-header.jpg" alt="Rice Granary Arts Center" class="about-header-image">
+    <!-- Top banner for announcements -->
+    
+    <!-- Header with logo and navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- Logo on left -->
+            <a href="index.html" class="logo-link">
+                <img id="site-logo" class="site-logo" src="media/icons/Chinese.svg" alt="米仓艺术中心">
+            </a>
+            
+            <!-- Menu on right -->
+            <div class="menu-container" id="menu-container"></div>
         </div>
+    </header>
+    
+    <!-- Main content -->
+    <div class="layout-container">
         
-        <div class="about-content">
-            <div class="about-section" id="about-intro">
-                <h1 class="section-title">
-                    <span data-lang-zh>关于米仓</span>
-                    <span data-lang-en>About Rice Granary</span>
-                </h1>
-                
-                <div class="about-text">
-                    <p class="about-paragraph" data-lang-zh>
-                        杭州米仓艺术中心坐落于西湖区，前身为一座建于上世纪50年代的粮仓。我们于2025年初改建并开放，旨在创造一个连接东西方当代艺术的创新平台。
-                    </p>
-                    <p class="about-paragraph" data-lang-en>
-                        The Hangzhou Rice Granary Arts Center is located in West Lake District, transformed from a 1950s grain warehouse. Renovated and opened in early 2025, we aim to create an innovative platform connecting Eastern and Western contemporary art.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="about-section" id="about-intro">
-                <h2 class="section-title">
-                    <span data-lang-zh>愿景与使命</span>
-                    <span data-lang-en>Vision & Mission</span>
-                </h2>
-                
-                <div class="about-text">
-                    <p class="about-paragraph" data-lang-zh>
-                        米仓艺术中心致力于推动艺术创新、文化交流和社区参与。我们希望成为杭州乃至中国艺术生态中的重要枢纽，通过展览、讲座、工作坊等多种形式，为艺术家和观众创造对话的可能性。
-                    </p>
-                    <p class="about-paragraph" data-lang-en>
-                        Rice Granary Arts Center is committed to promoting artistic innovation, cultural exchange, and community engagement. We aspire to be a vital hub in Hangzhou's and China's art ecosystem, creating possibilities for dialogue between artists and audiences through exhibitions, lectures, workshops, and more.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="about-section" id="about-space">
-                <h2 class="section-title">
-                    <span data-lang-zh>场地空间</span>
-                    <span data-lang-en>Our Space</span>
-                </h2>
-                
-                <div class="space-gallery">
-                    <div class="space-image">
-                        <img src="media/images/space-1.jpg" alt="Exhibition Hall" class="gallery-image">
-                        <p class="image-caption">
-                            <span data-lang-zh>主展厅</span>
-                            <span data-lang-en>Main Exhibition Hall</span>
-                        </p>
-                    </div>
-                    <div class="space-image">
-                        <img src="media/images/space-2.jpg" alt="Workshop Area" class="gallery-image">
-                        <p class="image-caption">
-                            <span data-lang-zh>驻地及工作坊区域</span>
-                            <span data-lang-en>Residency/Workshop Area</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="about-section" id="about-contact">
-                <h2 class="section-title">
-                    <span data-lang-zh>联系我们</span>
-                    <span data-lang-en>Contact Us</span>
-                </h2>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-label">
-                            <span data-lang-zh>地址</span>
-                            <span data-lang-en>Address</span>
-                        </div>
-                        <div class="contact-detail">
-                            <span data-lang-zh>浙江省杭州市西湖区XX路XX号</span>
-                            <span data-lang-en>No. XX, XX Road, West Lake District, Hangzhou, Zhejiang Province</span>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-label">
-                            <span data-lang-zh>开放时间</span>
-                            <span data-lang-en>Opening Hours</span>
-                        </div>
-                        <div class="contact-detail">
-                            <span data-lang-zh>周二至周日 10:00-18:00（周一闭馆）</span>
-                            <span data-lang-en>Tuesday to Sunday, 10:00 AM - 6:00 PM (Closed on Mondays)</span>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-label">
-                            <span data-lang-zh>联系电话</span>
-                            <span data-lang-en>Phone</span>
-                        </div>
-                        <div class="contact-detail">+86 571 XXXX XXXX</div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-label">
-                            <span data-lang-zh>电子邮箱</span>
-                            <span data-lang-en>Email</span>
-                        </div>
-                        <div class="contact-detail">info@ricegranary.art</div>
-                    </div>
+        <!-- Main content area -->
+        <div class="content-wrapper">
+            <div class="content about-page">
+                <div class="about-header">
+                    <img src="media/images/about-header.jpg" alt="Rice Granary Arts Center" class="about-header-image">
                 </div>
                 
-                <div class="map-container">
-                    <div class="map-placeholder">
-                        <span data-lang-zh>地图加载中...</span>
-                        <span data-lang-en>Map loading...</span>
-                    </div>
-                </div>
+                <div class="about-content">
+                    <div class="about-section" id="about-intro">
+                        
+                        <div class="about-text">
+                            <h4>
+                                <span data-lang-zh>米仓艺术中心-文化记忆的同行者——连接亚洲稻米文化圈的艺术实验场域</span>
+                                <span data-lang-en>The Rice Granary Arts Center: A Companion to Cultural Memory— An Experimental Artistic Field Connecting Asian Rice Cultures</span>
+                            </h4>
+                            
+                            
+                            <p class="about-paragraph" data-lang-zh>
+                                米仓艺术中心以亚洲稻米文化为核心，致力于成为跨国艺术交流的平台。其理念基于自然共生与循环，文化传承与重构，多样性与统一性的互补，全球化与在地性的平衡。
+                            </p>
+                            
+                            <p class="about-paragraph" data-lang-en>
+                                Rice Granary Arts Center is dedicated to Asian rice culture, aiming to serve as a transnational platform for artistic exchange. Its vision is founded on four core principles:
+                            </p>
 
-                <div class="wechat-share">
-                    <img src="media/images/wechat-qr.png" alt="Scan to follow our WeChat Official Account">
-                    <p>扫描二维码，关注我们的微信公众号</p>
-                  </div>
+                            <div class="about-text">
+                                <p class="about-paragraph" data-lang-zh>
+                                    米仓艺术中心致力于推动艺术创新、文化交流和社区参与。我们希望成为杭州乃至中国艺术生态中的重要枢纽，通过展览、讲座、工作坊等多种形式，为艺术家和观众创造对话的可能性。
+                                </p>
+                                <p class="about-paragraph" data-lang-en>
+                                    Rice Granary Arts Center is committed to promoting artistic innovation, cultural exchange, and community engagement. We aspire to be a vital hub in Hangzhou's and China's art ecosystem, creating possibilities for dialogue between artists and audiences through exhibitions, lectures, workshops, and more.
+                                </p>
+                            </div>
+                            
+                            <p class="about-paragraph" data-lang-zh>
+                                米仓位于杭州三墩镇五里塘历史街区，原为清同治三年 (1864年）的朱泰和粮油仓库，后改建为三墩粮管所碾米厂（现三墩镇东巢·碾米厂当代艺术中心8栋）。作为历史保护建筑，这里见证了160年的谷物加工与饮食文化。如今，它转型为非营利机构"米仓艺术中心"，成为亚洲文化的交汇点，与中国、日本、韩国、泰国、印度尼西亚、越南等国的文化机构合作，通过展览、艺术家驻留和艺术节等活动，探索稻米文化的多样性。在全球化的背景下，米仓艺术中心以稻米文化为桥梁，重新解读传统文化，并融合数字技术推动文化传播，为年轻一代创造技术体验传统文化的机会。2025年米仓的开幕将标志着杭州文化交流新时代的到来，成为亚洲各国共同探索异文化未来的艺术场域。
+                            </p>
+                            
+                            <p class="about-paragraph" data-lang-en>
+                                Located in the historic Wulitang district of Sandun Town, Hangzhou, The Rice Granary Arts Center was originally the Zhu Taihe Granary, built in 1864 during the Tongzhi era of the Qing Dynasty. It was later rebuilt as the Sandun Grain Administration's rice mill. As a protected historical site, The Rice Granary Arts Center bears witness to 160 years of grain processing and culinary culture. Today, it has been transformed as the non-profit Rice Granary Arts Center, a cultural nexus fostering collaborations with institutions across China, Japan, South Korea, Thailand, Indonesia, Vietnam, and beyond. Through exhibitions, artist residencies, and art festivals, The Rice Granary Arts Center explores the diversity of rice culture throughout Asia.
+                            </p>
+                            <p class="about-paragraph" data-lang-en>
+                                Against the backdrop of globalization, The Rice Granary Arts Center bridges rice culture with contemporary reinterpretations of tradition, integrating digital technology to enhance cultural dissemination. By offering younger generations innovative ways to experience heritage through technology, The Rice Granary Arts Center paves the way for a renewed appreciation of cultural memory. Its grand opening in 2025 will herald a new era of cultural exchange in Hangzhou, establishing an artistic field where Asian nations collectively envision the future of intercultural dialogue.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-section" id="about-space">
+                        <h2 class="section-title">
+                            <span data-lang-zh>场地空间</span>
+                            <span data-lang-en>Our Space</span>
+                        </h2>
+                        
+                        <div class="space-gallery">
+                            <div class="space-image">
+                                <img src="media/images/space-1.jpg" alt="Exhibition Hall" class="gallery-image">
+                                <p class="image-caption">
+                                    <span data-lang-zh>主展厅</span>
+                                    <span data-lang-en>Main Exhibition Hall</span>
+                                </p>
+                            </div>
+                            <div class="space-image">
+                                <img src="media/images/space-2.jpg" alt="Workshop Area" class="gallery-image">
+                                <p class="image-caption">
+                                    <span data-lang-zh>驻地及工作坊区域</span>
+                                    <span data-lang-en>Residency/Workshop Area</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-section" id="about-contact">
+                        <h2 class="section-title">
+                            <span data-lang-zh>联系我们</span>
+                            <span data-lang-en>Contact Us</span>
+                        </h2>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <div class="contact-label">
+                                    <span data-lang-zh>地址</span>
+                                    <span data-lang-en>Address</span>
+                                </div>
+                                <div class="contact-detail">
+                                    <span data-lang-zh>浙江省杭州市西湖区XX路XX号</span>
+                                    <span data-lang-en>No. XX, XX Road, West Lake District, Hangzhou, Zhejiang Province</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-label">
+                                    <span data-lang-zh>开放时间</span>
+                                    <span data-lang-en>Opening Hours</span>
+                                </div>
+                                <div class="contact-detail">
+                                    <span data-lang-zh>周二至周日 10:00-18:00（周一闭馆）</span>
+                                    <span data-lang-en>Tuesday to Sunday, 10:00 AM - 6:00 PM (Closed on Mondays)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-label">
+                                    <span data-lang-zh>联系电话</span>
+                                    <span data-lang-en>Phone</span>
+                                </div>
+                                <div class="contact-detail">+86 571 XXXX XXXX</div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-label">
+                                    <span data-lang-zh>电子邮箱</span>
+                                    <span data-lang-en>Email</span>
+                                </div>
+                                <div class="contact-detail">info@ricegranary.art</div>
+                            </div>
+                        </div>
+                        
+                        <div class="map-container">
+                            <div class="map-placeholder">
+                                <span data-lang-zh>地图加载中...</span>
+                                <span data-lang-en>Map loading...</span>
+                            </div>
+                        </div>
+
+                        <div class="wechat-share">
+                            <img src="media/images/wechat-qr.png" alt="Scan to follow our WeChat Official Account">
+                            <p>扫描二维码，关注我们的微信公众号</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
-    <div class="menu-container" id="menu-container"></div>
-    <a href="index.html"><img id="site-logo" class="site-logo" src="media/icons/Chinese.svg" alt="米仓艺术中心"></a>
+    <footer class="site-footer">
+      <!-- Will be populated by footer.js -->
+    </footer>
 </body>
 </html>

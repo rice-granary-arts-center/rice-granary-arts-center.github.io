@@ -1,0 +1,9 @@
+/* Home page layout - FIX DESKTOP SPACING */
+.content.home-page {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 3.5rem); /* Account for banner width */
+    height: 100vh;
+    margin-left: 3.5rem; /* Space for banner */
+    overflow: hidden;
+}

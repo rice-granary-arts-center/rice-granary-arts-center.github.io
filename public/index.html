@@ -3,37 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="杭州米仓艺术中心是一个展示当代艺术的空间，提供展览、讲座和艺术家访谈。Rice Granary Arts Center is a contemporary art space in Hangzhou featuring exhibitions, talks, and artist interviews.">
-    <title>米仓艺术空间 | Rice Granary Arts Center</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <title>米仓艺术中心 | Rice Granary Arts Center</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home-scroll.css">
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/components/home-scroll.js"></script>
 </head>
 <body>
-    <div class="content home-page">
-        <div class="poster">
-            <img src="media/images/poster_placeholder.svg" alt="Exhibition Poster" class="poster-image">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img id="site-logo" class="site-logo" src="media/icons/Chinese.svg" alt="米仓艺术中心">
+            </a>
+            <div class="menu-container" id="menu-container"></div>
         </div>
-        
-        <div class="banner">
-            <div class="scrollable-container">
-                <div class="scrollable-content" id="scrollable-content">
-                    <div class="exhibition-info">
-                        <!-- Keep everything in one line with inline spans -->
-                        <span data-lang-zh>杭州米仓艺术中心开馆特别展-小泽刚与管怀宾</span>
-                        <span data-lang-en>Hangzhou Rice Granary Arts Center Opening Special Exhibition: Ozawa Tsuyoshi and Guan Huaibin</span>
-                        &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <span data-lang-zh>展览期间：2025年3月18日至6月15日</span>
-                        <span data-lang-en>Exhibition Period: March 18, 2024 - June 15, 2024</span>
-                        &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <span data-lang-zh>开放时间：周二至周日 10:00-18:00</span>
-                        <span data-lang-en>Opening Hours: Tuesday to Sunday 10:00 AM - 6:00 PM</span>
+    </header>
+    
+    <!-- Main content -->
+    <div class="layout-container">
+        <div class="scroll-container">
+            <!-- Section 1: Exhibition Carousel -->
+            <section class="scroll-section exhibition-carousel-section">
+                <div class="exhibition-carousel">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-slide active" data-exhibition="exhibition1">
+                            <img src="media/images/exhibition_1.png" alt="Opening Exhibition">
+                            <div class="slide-overlay">
+                                <h2 data-lang-zh>开馆特别展：小泽刚与管怀宾</h2>
+                                <h2 data-lang-en>Opening Special Exhibition: Ozawa Tsuyoshi and Guan Huaibin</h2>
+                                <p data-lang-zh>2025年3月22日至7月5日</p>
+                                <p data-lang-en>March 22 - July 5, 2025</p>
+                                <a href="exhibition.html" class="details-link">
+                                    <span data-lang-zh>查看详情</span>
+                                    <span data-lang-en>View Details</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="carousel-slide" data-exhibition="exhibition2">
+                            <img src="media/images/exhibition_2.jpeg" alt="Parallel Exhibition">
+                            <div class="slide-overlay">
+                                <h2 data-lang-zh>待定展览标题</h2>
+                                <h2 data-lang-en>Exhibition Title TBD</h2>
+                                <p data-lang-zh>2025年3月22日至7月5日</p>
+                                <p data-lang-en>March 22 - July 5, 2025</p>
+                                <a href="#" class="details-link">
+                                    <span data-lang-zh>查看详情</span>
+                                    <span data-lang-en>View Details</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carousel Navigation -->
+                    <div class="carousel-nav">
+                        <button class="carousel-prev" aria-label="Previous exhibition">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                        <div class="carousel-dots">
+                            <button class="carousel-dot active" data-slide="0" aria-label="Exhibition 1"></button>
+                            <button class="carousel-dot" data-slide="1" aria-label="Exhibition 2"></button>
+                        </div>
+                        <button class="carousel-next" aria-label="Next exhibition">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Scroll down indicator -->
+                    <div class="scroll-indicator">
+                        <span data-lang-zh>向下滚动了解更多</span>
+                        <span data-lang-en>Scroll down to learn more</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
                     </div>
                 </div>
-            </div>
+            </section>
+            
+            <!-- Section 2: About Rice Granary -->
+            <section class="scroll-section about-section" id="about">
+                <div class="section-content">
+                    <h2 class="section-title">
+                        <span data-lang-zh>关于米仓</span>
+                        <span data-lang-en>About Rice Granary</span>
+                    </h2>
+                    
+                    <div class="about-content">
+                        <div class="about-image">
+                            <img src="media/images/about-header.jpg" alt="Rice Granary Arts Center">
+                        </div>
+                        
+                        <div class="about-text">
+                            <h4>
+                                <span data-lang-zh>米仓艺术中心-文化记忆的同行者</span>
+                                <span data-lang-en>The Rice Granary Arts Center: A Companion to Cultural Memory</span>
+                            </h4>
+                            
+                            <p data-lang-zh>
+                                米仓艺术中心以亚洲稻米文化为核心，致力于成为跨国艺术交流的平台。米仓位于杭州三墩镇五里塘历史街区，原为清同治三年 (1864年）的朱泰和粮油仓库，后改建为三墩粮管所碾米厂。
+                            </p>
+                            
+                            <p data-lang-en>
+                                Rice Granary Arts Center is dedicated to Asian rice culture, aiming to serve as a transnational platform for artistic exchange. Located in the historic Wulitang district of Sandun Town, Hangzhou, it was originally the Zhu Taihe Granary, built in 1864.
+                            </p>
+                            
+                            <a href="about.html" class="more-link">
+                                <span data-lang-zh>了解更多</span>
+                                <span data-lang-en>Learn More</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 3: Visit Information -->
+            <section class="scroll-section visit-section" id="visit">
+                <div class="section-content">
+                    <h2 class="section-title">
+                        <span data-lang-zh>参观信息</span>
+                        <span data-lang-en>Visit Information</span>
+                    </h2>
+                    
+                    <div class="visit-content">
+                        <div class="visit-info">
+                            <div class="info-item">
+                                <h5 data-lang-zh>地址</h5>
+                                <h5 data-lang-en>Location</h5>
+                                <p data-lang-zh>浙江省杭州市西湖区三墩镇五里塘历史街区</p>
+                                <p data-lang-en>Wulitang Historic District, Sandun Town, West Lake District, Hangzhou</p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <h5 data-lang-zh>开放时间</h5>
+                                <h5 data-lang-en>Hours</h5>
+                                <p data-lang-zh>周二至周日 10:00-18:00（周一闭馆）</p>
+                                <p data-lang-en>Tuesday to Sunday, 10:00 AM - 6:00 PM (Closed on Mondays)</p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <h5 data-lang-zh>联系方式</h5>
+                                <h5 data-lang-en>Contact</h5>
+                                <p>+86 571 XXXX XXXX</p>
+                                <p><a href="mailto:info@ricegranary.art">info@ricegranary.art</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="ticket-reservation">
+                            <h5 data-lang-zh>预约参观</h5>
+                            <h5 data-lang-en>Reserve Tickets</h5>
+                            <p data-lang-zh>扫描下方二维码关注我们的微信公众号并预约参观</p>
+                            <p data-lang-en>Scan the QR code below to follow our WeChat account and reserve tickets</p>
+                            
+                            <div class="qr-code">
+                                <img src="media/images/wechat-qr.png" alt="WeChat QR Code">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
     
-    <div class="menu-container" id="menu-container"></div>
-    <a href="index.html"><img id="site-logo" class="site-logo" src="media/icons/Chinese.svg" alt="米仓艺术中心"></a>
+    <footer class="site-footer">
+        <!-- Will be populated by footer.js -->
+    </footer>
 </body>
 </html>

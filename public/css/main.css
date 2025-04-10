@@ -1,0 +1,28 @@
+/* Main stylesheet */
+
+/* Core */
+@import 'core/reset.css';
+@import 'core/variables.css';
+@import 'core/typography.css';
+@import 'core/animations.css';
+
+/* Layout */
+@import 'layout/container.css';
+@import 'layout/grid.css';
+@import 'layout/spacing.css';
+
+/* Components */
+@import 'components/header/index.css';
+@import 'components/header/mobile.css';
+@import 'components/menu/index.css';
+@import 'components/menu/mobile.css';
+@import 'components/footer/index.css';
+@import 'components/footer/mobile.css';
+
+/* Pages */
+@import 'pages/home/index.css';
+@import 'pages/exhibition/index.css';
+@import 'pages/about/index.css';
+
+/* Utilities - always last */
+@import 'utils/helpers.css';
